@@ -9,9 +9,13 @@ contract TimaBolsh is ERC721, ERC721URIStorage, Ownable {
     uint256 private _nextTokenId;
 
     constructor(address initialOwner)
-        ERC721("Tima Dima Beka", "STRAX")
+        ERC721("Tima Bolsh", "TBD")
         Ownable(initialOwner)
     {}
+
+    function _baseURI() internal pure override returns (string memory) {
+        return "ipfs://timadimabekaBaseURI";
+    }
 
     function safeMint(address to, string memory uri) public onlyOwner {
         uint256 tokenId = _nextTokenId++;
